@@ -93,12 +93,7 @@ footer{margin-top:24px;color:var(--muted);font-size:11px;text-align:center}
 const STORAGE_KEY='student-dashboard-v1';
 const classes=['Spanish I','US History','Biology','English I','Physical Education','Algebra I','Healthy Decisions'];
 const seed=[
-['Comic Strip','Spanish I'],['Conjuquemos #3','Spanish I'],['Conjuquemos #4: Article and gustar','Spanish I'],['Unit 1 Quiz/Assessments Review','Spanish I'],
-['Conjuquemos #6: Unit 2 Vocabulary A','Spanish I','awaiting'],['Conjuquemos #7: Adjective Agreement','Spanish I','awaiting'],['U2 Reading: Mateo','Spanish I','verify'],['Unit 2 Amelia Practice','Spanish I'],['Conjuquemos #10: U3 Vocabulary','Spanish I'],
-['Notebook #1: Enumerated','US History'],['Notebook #1: Nonenumerated','US History'],['Notebook #2: Enumerated','US History'],['Notebook #2: Nonenumerated','US History'],
-['Birth of the Earth Foldable Study Aid','Biology'],['Earth Spheres Webquest','Biology'],
-['11 Sentence Paragraph Planning','English I'],['11 Sentence Paragraph Final','English I'],
-['FitnessGram Written Instructions 1–3','Physical Education'],['Day 2 - CH1 Packet 1 HW 2','Algebra I']
+
 ].map((x,i)=>({id:'seed-'+i,title:x[0],class:x[1],status:x[2]||'todo',priority:'medium',due:'',notes:x[2]==='awaiting'?'Previously completed; marked late. Ask teacher whether credit is still possible.':x[2]==='verify'?'Check whether submission included your name.':'',created:Date.now()+i}));
 let assignments=load();let selectedClass='all',selectedStatus='all',editingId=null;
 function load(){try{const v=JSON.parse(localStorage.getItem(STORAGE_KEY));return Array.isArray(v)?v:seed.map(x=>({...x}));}catch{return seed.map(x=>({...x}));}}
